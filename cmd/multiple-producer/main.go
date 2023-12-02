@@ -33,7 +33,10 @@ func main () {
 		logger.WithError(err).Fatal("can not create producer")
 	}
 	eventPublisher := eventbus.NewEventPublisher(logger, kafkaProducer)
-	uuid, err := uuid.GenerateUUID()
+	uuid1, err := uuid.GenerateUUID()
+	uuid2, err := uuid.GenerateUUID()
+	uuid3, err := uuid.GenerateUUID()
+	uuid4, err := uuid.GenerateUUID()
 	if err != nil {
 		logger.WithError(err).Fatal("can not generate uuid")
 	}
@@ -41,25 +44,25 @@ func main () {
 	messages := []eventbus.Message{
 		{
 			Topic: "test-kafka-consumer",
-			Key: []byte(uuid),
+			Key: []byte(uuid1),
 			Payload: payload,
 			Time: time.Now(),
 		},
 		{
 			Topic: "test-kafka-consumer",
-			Key: []byte(uuid),
+			Key: []byte(uuid2),
 			Payload: payload,
 			Time: time.Now(),
 		},
 		{
 			Topic: "test-kafka-consumer",
-			Key: []byte(uuid),
+			Key: []byte(uuid3),
 			Payload: payload,
 			Time: time.Now(),
 		},
 		{
 			Topic: "test-kafka-consumer",
-			Key: []byte(uuid),
+			Key: []byte(uuid4),
 			Payload: payload,
 			Time: time.Now(),
 		},

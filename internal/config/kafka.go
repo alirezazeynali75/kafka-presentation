@@ -26,7 +26,7 @@ func (conf KafkaConfig) ToSaramaConfig() (*sarama.Config, error) {
 	kafkaConfig.Producer.Partitioner = sarama.NewHashPartitioner
 	kafkaConfig.Producer.Transaction.Retry.Backoff = 10
 	kafkaConfig.Net.MaxOpenRequests = 1
-	kafkaConfig.Producer.Transaction.ID = "test-kafka"
+	kafkaConfig.Producer.Transaction.ID = "test-kafka-id"
 
 	kafkaConfig.Consumer.Offsets.Initial = sarama.OffsetOldest
 	kafkaConfig.Consumer.Offsets.Retry.Max = 30
